@@ -2,93 +2,169 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中醫問診系統</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; }
-    h1 { color: #8B0000; }
-    .symptom-list { margin-bottom: 20px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfaf5;
+      padding: 30px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #8B0000;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    .symptom-group {
+      margin-bottom: 15px;
+    }
+
+    .symptom-group summary {
+      font-weight: bold;
+      color: #444;
+      cursor: pointer;
+    }
+
+    label {
+      display: inline-block;
+      width: 45%;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background-color: #8B0000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #a30000;
+    }
+
+    #result {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .result-box {
+      background: #f9f1ef;
+      border-left: 5px solid #8B0000;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 600px) {
+      label {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+
   <h1>中醫問診（依《傷寒論》）</h1>
-  <h2>Hello</h2>
-  <form id="diagnosisForm">
-    <div class="symptom-list">
-      <label><input type="checkbox" name="symptom" value="發熱"> 發熱</label><br>
-      <label><input type="checkbox" name="symptom" value="惡風"> 惡風</label><br>
-      <label><input type="checkbox" name="symptom" value="汗出"> 汗出</label><br>
-      <label><input type="checkbox" name="symptom" value="脈緩"> 脈緩</label><br>
-      <label><input type="checkbox" name="symptom" value="惡寒"> 惡寒</label><br>
-      <label><input type="checkbox" name="symptom" value="頭痛"> 頭痛</label><br>
-      <label><input type="checkbox" name="symptom" value="脈緊"> 脈緊</label><br>
-      <label><input type="checkbox" name="symptom" value="大熱"> 大熱</label><br>
-      <label><input type="checkbox" name="symptom" value="大汗"> 大汗</label><br>
-      <label><input type="checkbox" name="symptom" value="大渴"> 大渴</label><br>
-      <label><input type="checkbox" name="symptom" value="脈洪大"> 脈洪大</label><br>
-      <label><input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來</label><br>
-      <label><input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿</label><br>
-      <label><input type="checkbox" name="symptom" value="心煩"> 心煩</label><br>
-      <label><input type="checkbox" name="symptom" value="不欲飲食"> 不欲飲食</label><br>
-      <label><input type="checkbox" name="symptom" value="腹痛"> 腹痛</label><br>
-      <label><input type="checkbox" name="symptom" value="吐利"> 吐利</label><br>
+
+  <form id="diagnosisForm" class="card">
+    <details class="symptom-group" open>
+      <summary>表證相關</summary>
+      <label><input type="checkbox" name="symptom" value="發熱"> 發熱</label>
+      <label><input type="checkbox" name="symptom" value="惡風"> 惡風</label>
+      <label><input type="checkbox" name="symptom" value="汗出"> 汗出</label>
+      <label><input type="checkbox" name="symptom" value="惡寒"> 惡寒</label>
+      <label><input type="checkbox" name="symptom" value="頭痛"> 頭痛</label>
+      <label><input type="checkbox" name="symptom" value="脈緩"> 脈緩</label>
+      <label><input type="checkbox" name="symptom" value="脈緊"> 脈緊</label>
+    </details>
+
+    <details class="symptom-group">
+      <summary>陽明/實熱證</summary>
+      <label><input type="checkbox" name="symptom" value="大熱"> 大熱</label>
+      <label><input type="checkbox" name="symptom" value="大汗"> 大汗</label>
+      <label><input type="checkbox" name="symptom" value="大渴"> 大渴</label>
+      <label><input type="checkbox" name="symptom" value="脈洪大"> 脈洪大</label>
+    </details>
+
+    <details class="symptom-group">
+      <summary>少陽/半表半裏</summary>
+      <label><input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來</label>
+      <label><input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿</label>
+      <label><input type="checkbox" name="symptom" value="心煩"> 心煩</label>
+      <label><input type="checkbox" name="symptom" value="不欲飲食"> 不欲飲食</label>
+    </details>
+
+    <details class="symptom-group">
+      <summary>太陰/虛寒</summary>
+      <label><input type="checkbox" name="symptom" value="腹痛"> 腹痛</label>
+      <label><input type="checkbox" name="symptom" value="吐利"> 吐利</label>
       <label><input type="checkbox" name="symptom" value="四肢不溫"> 四肢不溫</label>
-    </div>
+    </details>
+
     <button type="submit">提交診斷</button>
+    <button type="reset">清除重選</button>
   </form>
 
-  <h2>診斷結果：</h2>
-  <div id="result"></div>
+  <div class="card" id="result">
+    <h2>診斷結果：</h2>
+    <div id="resultText" class="result-box">請勾選症狀後點擊提交診斷。</div>
+  </div>
 
-  <script>
-    /*document.getElementById('diagnosisForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const symptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked'))
-                            .map(el => el.value);
+<script>
+  const patterns = [
+    { name: "太陽中風", symptoms: ["發熱", "惡風", "汗出", "脈緩"], formula: "桂枝湯" },
+    { name: "太陽傷寒", symptoms: ["惡寒", "無汗", "頭痛", "脈緊"], formula: "麻黃湯" },
+    { name: "陽明經證", symptoms: ["大熱", "大汗", "大渴", "脈洪大"], formula: "白虎湯" },
+    { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不欲飲食"], formula: "小柴胡湯" },
+    { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" }
+  ];
 
-      fetch('http://localhost:5000/diagnose', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ symptoms: symptoms })
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('result').innerHTML =
-          `<p><strong>辨證：</strong> ${data.pattern}</p>
-           <p><strong>建議湯方：</strong> ${data.formula}</p>`;
-      });
-    });*/
-    const patterns = [
-      { name: "太陽中風", symptoms: ["發熱", "惡風", "汗出", "脈緩"], formula: "桂枝湯" },
-      { name: "太陽傷寒", symptoms: ["惡寒", "無汗", "頭痛", "脈緊"], formula: "麻黃湯" },
-      { name: "陽明經證", symptoms: ["大熱", "大汗", "大渴", "脈洪大"], formula: "白虎湯" },
-      { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不欲飲食"], formula: "小柴胡湯" },
-      { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" }
-    ];
+  document.getElementById('diagnosisForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const selected = Array.from(document.querySelectorAll('input[name="symptom"]:checked')).map(el => el.value);
+    const results = [];
 
-    document.getElementById('diagnosisForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const selected = Array.from(document.querySelectorAll('input[name="symptom"]:checked'))
-                            .map(el => el.value);
+    patterns.forEach(pattern => {
+      const total = pattern.symptoms.length;
+      const matchCount = pattern.symptoms.filter(s => selected.includes(s)).length;
+      const probability = Math.round((matchCount / total) * 100);
 
-      let bestMatch = null;
-      let maxMatch = 0;
-
-      patterns.forEach(pattern => {
-        const matchCount = pattern.symptoms.filter(s => selected.includes(s)).length;
-        if (matchCount > maxMatch) {
-          maxMatch = matchCount;
-          bestMatch = pattern;
-        }
-      });
-
-      const result = document.getElementById('result');
-      if (bestMatch && maxMatch > 0) {
-        result.innerHTML = `<p><strong>辨證：</strong> ${bestMatch.name}</p>
-                            <p><strong>建議湯方：</strong> ${bestMatch.formula}</p>`;
-      } else {
-        result.innerHTML = `<p>無法判斷證型，請洽中醫師進一步診斷。</p>`;
+      if (probability >= 50) {
+        results.push({ ...pattern, probability });
       }
     });
-  </script>
+
+    results.sort((a, b) => b.probability - a.probability);
+
+    const resultBox = document.getElementById('resultText');
+    if (results.length > 0) {
+      let html = "<ul>";
+      results.forEach(r => {
+        html += `<li><strong>${r.name}</strong>（${r.probability}%）：建議湯方為 <strong>${r.formula}</strong></li>`;
+      });
+      html += "</ul>";
+      resultBox.innerHTML = html;
+    } else {
+      resultBox.innerHTML = `<p>無法判斷明確證型（各證型吻合度皆低於 50%）。</p>`;
+    }
+  });
+</script>
+
 </body>
 </html>
