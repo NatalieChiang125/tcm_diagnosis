@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中醫問診系統</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -16,6 +18,13 @@
       color: #8B0000;
       font-size: 2em;
       margin-bottom: 10px;
+    }
+
+    .subheading {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: -10px;
+      margin-bottom: 20px;
     }
 
     .card {
@@ -81,6 +90,7 @@
 <body>
 
   <h1>中醫問診（依《傷寒論》）</h1>
+  <p class="subheading"> 歡迎來到AI中醫辨證論治系統，請勾選下列您出現的症狀</p>
 
   <form id="diagnosisForm" class="card">
     <details class="symptom-group" open>
