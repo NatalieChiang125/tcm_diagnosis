@@ -24,6 +24,73 @@
       margin-top: -10px;
       margin-bottom: 20px;
     }
+    .subdevise{
+      font-size: 0.8em;
+      color: #ec7063;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    /*.explain-btn {
+      margin-left: 5px;
+      font-size: 0.8em;
+      cursor: pointer;
+      color: #007BFF;
+      border: none;
+      background: none;
+      text-decoration: underline;
+    }
+    .explain-btn:hover {
+      color: #0056b3;
+    }*/
+
+    .tooltip-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip-text {
+      display: none;
+      position: absolute;
+      left: 60%;
+      top: 0;
+      margin-left: 5px;
+      padding: 5px 8px;
+      background-color: #f2f2f2;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      white-space: nowrap;
+      z-index: 10;
+      font-size: 0.85em;
+    }
+    
+    .tooltip-wrapper.active .tooltip-text {
+      display: inline-block;
+    }
+
+    .explain-btn {
+      margin-left: 1px;
+      background: none;
+      border: none;
+      padding: 0;
+      color: #007BFF;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-family: inherit;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+
+    .explain-btn:hover {
+      color: #0056b3;       /* hover 時變色 */
+    }
+
+    .explain-btn:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
 
     .card {
       background: #fff;
@@ -51,7 +118,7 @@
     }
 
     button {
-      background-color: #8B0000;
+      background-color: #aa463d;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -60,10 +127,64 @@
       cursor: pointer;
       margin-right: 10px;
     }
-
     button:hover {
-      background-color: #a30000;
+      background-color: #a53025;
     }
+
+    .infobutton {
+      background-color: #fff;
+      color: #2e86c1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .infobutton:hover {
+      background-color: #fff;
+    }
+
+    .step-tracker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .step {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .step-circle {
+      width: 30px;
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      color: white;
+      z-index: 1;
+    }
+
+    .step-circle.active {
+      background-color: #aa463d;
+    }
+
+    .step-line {
+      width: 60px;
+      height: 4px;
+      background-color: #ddd;
+    }
+
+    .step-line.active {
+      background-color: #aa463d;
+    }
+
 
     #result {
       font-size: 1.1em;
@@ -78,6 +199,17 @@
       border-radius: 5px;
     }
 
+    .page {
+      display: none;
+      #page1 {
+        display: block;
+      }
+    }
+
+    .navigation-buttons {
+      margin-top: 20px;
+    }
+
     @media (max-width: 600px) {
       label {
         width: 100%;
@@ -87,54 +219,578 @@
 </head>
 <body>
 
-  <h1>中醫問診（依《傷寒論》）</h1>
-  <p class="subheading"> 歡迎來到AI中醫辨證論治系統，請勾選下列您出現的症狀</p>
-
-  <form id="diagnosisForm" class="card">
-    <details class="symptom-group" open>
-      <summary>表證相關</summary>
-      <label><input type="checkbox" name="symptom" value="發熱"> 發熱</label>
-      <label><input type="checkbox" name="symptom" value="惡風"> 惡風</label>
-      <label><input type="checkbox" name="symptom" value="汗出"> 汗出</label>
-      <label><input type="checkbox" name="symptom" value="惡寒"> 惡寒</label>
-      <label><input type="checkbox" name="symptom" value="頭痛"> 頭痛</label>
-      <label><input type="checkbox" name="symptom" value="脈緩"> 脈緩</label>
-      <label><input type="checkbox" name="symptom" value="脈緊"> 脈緊</label>
-    </details>
-
-    <details class="symptom-group">
-      <summary>陽明/實熱證</summary>
-      <label><input type="checkbox" name="symptom" value="大熱"> 大熱</label>
-      <label><input type="checkbox" name="symptom" value="大汗"> 大汗</label>
-      <label><input type="checkbox" name="symptom" value="大渴"> 大渴</label>
-      <label><input type="checkbox" name="symptom" value="脈洪大"> 脈洪大</label>
-    </details>
-
-    <details class="symptom-group">
-      <summary>少陽/半表半裏</summary>
-      <label><input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來</label>
-      <label><input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿</label>
-      <label><input type="checkbox" name="symptom" value="心煩"> 心煩</label>
-      <label><input type="checkbox" name="symptom" value="不欲飲食"> 不欲飲食</label>
-    </details>
-
-    <details class="symptom-group">
-      <summary>太陰/虛寒</summary>
-      <label><input type="checkbox" name="symptom" value="腹痛"> 腹痛</label>
-      <label><input type="checkbox" name="symptom" value="吐利"> 吐利</label>
-      <label><input type="checkbox" name="symptom" value="四肢不溫"> 四肢不溫</label>
-    </details>
-
-    <button type="submit">提交診斷</button>
-    <button type="reset">清除重選</button>
-  </form>
-
-  <div class="card" id="result">
-    <h2>診斷結果：</h2>
-    <div id="resultText" class="result-box">請勾選症狀後點擊提交診斷。</div>
+  <div class="step-tracker" id="stepTracker">
+    <div class="step">
+      <div class="step-circle active" id="step1">1</div>
+      <div class="step-line" id="line1"></div>
+    </div>
+    <div class="step">
+      <div class="step-circle" id="step2">2</div>
+      <div class="step-line" id="line2"></div>
+    </div>
+    <div class="step">
+      <div class="step-circle" id="step3">3</div>
+      <div class="step-line" id="line3"></div>
+    </div>
+    <div class="step">
+      <div class="step-circle" id="step4">4</div>
+      <div class="step-line" id="line4"></div>
+    </div>
+    <div class="step">
+      <div class="step-circle" id="step5">5</div>
+    </div>
   </div>
 
+  <section id="page1" class="page" style="display: block; text-align: center;">
+    <h1>請選擇系統</h1>
+    <div style="display: flex; justify-content: center; gap: 50px; margin-top: 50px;">
+      <div onclick="startCitizenSystem()" style="width: 200px; height: 200px; border: 2px solid #aa463d; border-radius: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <h2>民眾系統</h2>
+      </div>
+      <div onclick="startDoctorSystem()" style="width: 200px; height: 200px; border: 2px solid #466daa; border-radius: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <h2>醫師系統</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="page2" class="page" style="display: none;">
+    <h1>中醫問診（依《傷寒論》）</h1>
+    <p class="subheading"> 歡迎來到AI中醫辨證論治系統，請勾選下列您出現的症狀</p>
+    <button onclick="showPage(3)">開始填寫基本資料</button>
+  </section>
+
+
+  <section id="page3" class="page" style="display:none;">
+    <h1>基本資料填寫</h1>
+    <form id="basicInfoForm">
+      <label>性別：
+        <select name="gender" required>
+          <option value="">請選擇</option>
+          <option value="男">男</option>
+          <option value="女">女</option>
+          <option value="其他">其他</option>
+        </select>
+      </label><br><br>
+
+      <label>年齡：
+        <input type="number" name="age" min="0" max="120" required>
+      </label><br><br>
+
+      <label>用藥史：
+        <textarea name="medHistory" rows="3" placeholder="請簡述您過去的用藥情況"></textarea>
+      </label><br><br>
+
+      <button type="button" onclick="previousStep()">上一步</button>
+      <button type="button" onclick="showPage(4)">下一步：症狀選擇</button>
+    </form>
+  </section>
+
+  <section id="page4" class="page" style="display:none;">
+    <form id="diagnosisForm" class="card">
+      <details class="symptom-group" open>
+        <summary>表證相關</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="發熱"> 發熱
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="惡風"> 惡風
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="汗出"> 汗出
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="惡寒"> 惡寒
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="頭痛"> 頭痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="脈緩"> 脈緩
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="脈緊"> 脈緊
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+      </details>
+
+      <details class="symptom-group">
+        <summary>陽明/實熱證</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="大熱"> 大熱
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="大汗"> 大汗
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="大渴"> 大渴
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="脈洪大"> 脈洪大
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+      </details>
+
+      <details class="symptom-group">
+        <summary>少陽/半表半裏</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="心煩"> 心煩
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="不欲飲食"> 不欲飲食
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+      </details>
+
+      <details class="symptom-group">
+        <summary>太陰/虛寒</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="腹痛"> 腹痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="吐利"> 吐利
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="四肢不溫"> 四肢不溫
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">體溫上升</span>
+          </span>
+        </label><br>
+      </details>
+
+      <button type="button" onclick="previousStep()">上一步</button>
+      <button type="reset">清除重選</button>
+      <button onclick="showPage(5)">下一步</button>
+      
+    </form>
+
+    <div class="card" id="result">
+      <h2>診斷結果：</h2>
+      <p class="subdevise">以下結果為系統推論僅供參考</p>
+      <p class="subheading">結果顯示代表您可能的病症和您符合此病症的吻合度，並提供您此病症建議的湯方</p>
+      <div id="resultText" class="result-box">請勾選症狀後點擊提交診斷。</div>
+    </div>
+  </section>
+
+  <section id="page5" class="page" style="display:none;">
+    <h1>脈象診斷</h1>
+    <p class="subheading">請醫師勾選病人的脈象，系統將根據症狀與脈象判斷可能病症。</p>
+    
+    <form id="pulseForm">
+      <label><input type="checkbox" name="pulse" value="浮脈"> 浮脈</label><br>
+      <label><input type="checkbox" name="pulse" value="沉脈"> 沉脈</label><br>
+      <label><input type="checkbox" name="pulse" value="緩脈"> 緩脈</label><br>
+      <label><input type="checkbox" name="pulse" value="數脈"> 數脈</label><br>
+      <label><input type="checkbox" name="pulse" value="滑脈"> 滑脈</label><br>
+      <label><input type="checkbox" name="pulse" value="澀脈"> 澀脈</label><br><br>
+      <button type="button" onclick="previousStep()">上一步</button>
+      <button type="button" onclick="showPage(6)">判斷病症</button>
+      
+    </form>
+
+    <div id="pulseResult" class="card" style="margin-top:1em;">
+      <h2>可能的病症</h2>
+      <p>請先完成前三步並點擊判斷病症。</p>
+    </div>
+  </section>
+
+  <section id="page6" class="page" style="display:none;">
+    <div class="page" id="doctorPage" style="display: none;">
+      <h2>病患資料總覽</h2>
+      <div id="summaryTable"></div>
+    </div>
+
+    <div class="page" id="citizenSummaryPage" style="display: none;">
+      <h2>您的體質分析結果</h2>
+      <div id="summaryTable2"></div>
+      <div id="suggestedFormula"></div>
+    </div>
+
+  </section>
+
+
 <script>
+
+  let isDoctorMode = false;
+
+  function startCitizenSystem() {
+    isDoctorMode = false;
+    //document.getElementById('mainMenu').style.display = 'none';
+    showPage(2);
+    updateProgress(2);
+  }
+
+  function startDoctorSystem() {
+    isDoctorMode = true;
+    //document.getElementById('mainMenu').style.display = 'none';
+    showPage(2);
+    updateProgress(2);
+  }
+
+
+  let basicInfo = {};
+  let symptoms = [];
+  let pulses = [];
+  let currentPage=1;
+
+  function showPage(pageNum) {
+    const pages = document.querySelectorAll('.page');
+    currentPage=pageNum;
+    pages.forEach((p, i) => p.style.display = (i === pageNum - 1) ? 'block' : 'none');
+    // 第5頁：民眾顯示「不知道」
+    if (pageNum === 5 && !isDoctorMode) {
+      const pulseContainer = document.getElementById('pulseForm');
+      if (!document.getElementById('unknownPulse')) {
+        const unknownOption = document.createElement('label');
+        unknownOption.innerHTML = `<input type="checkbox" name="pulse" id="unknownPulse" value="不知道"> 不知道`;
+        const pulseContainer = document.getElementById('pulseForm');
+        //const buttons = pulseForm.querySelector('button');
+        const lastCheckbox = pulseForm.querySelectorAll('label:last-of-type')[0]
+        // 插入到 pulseContainer 的第一個子元素前
+        lastCheckbox.after(unknownOption);
+        
+        //pulseContainer.appendChild(unknownOption);
+      }
+    }
+
+    // 第6頁：醫師專屬
+    if (pageNum === 6 && isDoctorMode) {
+      renderDoctorPage();
+    }
+    // 第6頁：醫師專屬
+    else if (pageNum === 6 && !isDoctorMode) {
+      renderCitizenPage();
+    }
+    document.getElementById('stepTracker').style.display = pageNum === 1 ? 'none' : 'flex';
+    updateProgress(pageNum);
+    //updateProgress(pageNum);
+  }
+
+  function updateProgress(step) {
+    for (let i = 1; i <= 5; i++) {
+      const circle = document.getElementById(`step${i}`);
+      const line = document.getElementById(`line${i - 1}`);
+      if (i <= step) {
+        circle.classList.add('active');
+        if (line) line.classList.add('active');
+      } else {
+        circle.classList.remove('active');
+        if (line) line.classList.remove('active');
+      }
+    }
+  }
+
+  function nextStep() {
+    if (currentPage ===1) {
+      submitBasicInfo();
+    } else if (currentPage === 3) {
+      document.getElementById('diagnosisForm').dispatchEvent(new Event('submit'));
+    } else if (currentPage === 5) {
+      diagnose();
+      showPage(currentPage + 1);
+    }
+    
+  }
+
+  function previousStep() {
+    if (currentPage > 1) {
+      showPage(currentPage - 1);
+    }
+  }
+
+
+  function submitBasicInfo() {
+    const form = document.getElementById('basicInfoForm');
+    if (!form.checkValidity()) {
+      alert("請完整填寫基本資料！");
+      return;
+    }
+    basicInfo = {
+      gender: form.gender.value,
+      age: form.age.value,
+      medHistory: form.medHistory.value
+    };
+    showPage(3);
+  }
+
+  // 取第4頁症狀
+  document.getElementById('diagnosisForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    symptoms = Array.from(this.symptom)
+                    .filter(chk => chk.checked)
+                    .map(chk => chk.value);
+    if(symptoms.length === 0) {
+      alert("請至少勾選一項症狀");
+      return;
+    }
+    showPage(5);
+  });
+
+  // 第5頁脈象與診斷判斷
+  function diagnose() {
+    const pulseForm = document.getElementById('pulseForm');
+    pulses = Array.from(pulseForm.pulse)
+                  .filter(chk => chk.checked)
+                  .map(chk => chk.value);
+    if(pulses.length === 0) {
+      alert("請勾選至少一項脈象");
+      return;
+    }
+    
+    // 邏輯還未寫
+    let diagnosis = "未能判斷。";
+    if (symptoms.includes("發熱") && pulses.includes("浮脈")) {
+      diagnosis = "可能為風熱感冒。建議飲用銀翹解毒湯。";
+    } else if (symptoms.includes("惡寒") && pulses.includes("沉脈")) {
+      diagnosis = "可能為風寒感冒。建議飲用麻黃湯。";
+    } else {
+      diagnosis = "症狀與脈象複雜，建議進一步診察。";
+    }
+
+    document.getElementById('pulseResult').innerHTML = `<h2>可能的病症</h2><p>${diagnosis}</p>`;
+  }
+
+  function renderDoctorPage() {
+    // 1. 收集使用者輸入的資料
+    const age = document.querySelector('input[name="age"]').value;
+    const gender = document.querySelector('select[name="gender"]')?.value || '未選擇';
+    const medHistory=document.querySelector('textarea[name="medHistory"]')?.value.trim() || '未填寫';
+    const pulse = document.querySelector('input[name="pulse"]:checked')?.value || '未填寫';
+    const symptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked')).map(el => el.value);
+
+    // 2. 建立資料表格
+    const summary = `
+      <table border="1" cellpadding="5">
+        <tr><th>性別</th><td>${gender}</td></tr>
+        <tr><th>年齡</th><td>${age}</td></tr>
+        <tr><th>用藥史</th><td>${medHistory}</td></tr>
+        <tr><th>脈象</th><td>${pulse}</td></tr>
+        <tr><th>症狀</th><td>${symptoms.length > 0 ? symptoms.join(', ') : '未填寫'}</td></tr>
+      </table>
+    `;
+
+    document.getElementById('summaryTable').innerHTML = summary;
+    document.getElementById('doctorPage').style.display = 'block';
+  }
+
+  function renderCitizenPage() {
+
+
+    // 1. 收集使用者輸入的資料
+    const age = document.querySelector('input[name="age"]').value;
+    const gender = document.querySelector('select[name="gender"]')?.value || '未選擇';
+    const pulse = document.querySelector('input[name="pulse"]:checked')?.value || '未填寫';
+    const symptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked')).map(el => el.value);
+
+    // 2. 建立資料表格
+    const summaryHTML = `
+      <table border="1" cellpadding="5">
+        <tr><th>性別</th><td>${gender}</td></tr>
+        <tr><th>年齡</th><td>${age}</td></tr>
+        <tr><th>脈象</th><td>${pulse}</td></tr>
+        <tr><th>症狀</th><td>${symptoms.length > 0 ? symptoms.join(', ') : '未填寫'}</td></tr>
+      </table>
+    `;
+    document.getElementById('summaryTable2').innerHTML = summaryHTML;
+    //console.log("勾選的症狀：", selected);
+
+
+    //亂寫邏輯
+   /* let formula = '';
+    let condition = '';
+
+    if (pulse === '細' && symptoms.includes('怕冷')) {
+      formula = '桂枝湯';
+      condition = '表虛、自汗、風寒感冒';
+    } else if (pulse === '滑' && symptoms.includes('口渴')) {
+      formula = '白虎湯';
+      condition = '內熱、陽明經症';
+    } else if (pulse === '沈' && symptoms.includes('腹脹')) {
+      formula = '四君子湯';
+      condition = '脾虛、氣短乏力';
+    } else {
+      formula = '暫無建議湯方';
+      condition = '無法判斷，請諮詢中醫師';
+    }*/
+
+    // 3. 根據症狀匹配湯方
+    const matches = patterns.map(pattern => {
+        const matchedSymptoms = pattern.symptoms.filter(symptom => symptoms.includes(symptom));
+        const matchRate = matchedSymptoms.length / pattern.symptoms.length;
+        return { ...pattern, matchRate };
+    }).filter(pattern => pattern.matchRate >= 0.5);
+
+
+    //let formula = "暫無建議湯方";
+    //let condition = "無法判斷，請諮詢中醫師";
+    //let ingredients = "";
+    let suggestionHTML = "<h3>建議湯方</h3>";
+    if (matches.length>0) {
+      matches.forEach(match => {
+        const formula = match.formula;
+        const condition = match.name;
+        const matchPercentage = Math.round(match.matchRate * 100);
+        // 假設湯方配方
+        const formulaIngredients = {
+            "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
+            "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
+            "白虎湯": ["石膏", "知母", "甘草", "粳米"],
+            "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
+            "理中湯": ["人參", "白朮", "甘草", "乾薑"]
+        };
+
+        const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
+        
+        // 4. 顯示建議湯方
+        suggestionHTML += `
+          <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-top: 10px;">
+            <p><strong>病症分類：</strong> ${condition}(${matchPercentage}% 匹配)</p>
+            <p><strong>湯方：</strong> ${formula}</p>
+            <p><strong>配方：</strong> ${ingredients}</p>
+          </div>
+        `;
+      });
+    } else {
+        suggestionHTML += "<p>暫無建議湯方，請諮詢中醫師。</p>";
+    }
+    document.getElementById('suggestedFormula').innerHTML = suggestionHTML;
+    //document.getElementById('suggestedFormula').style.display = 'block';
+    document.getElementById('citizenSummaryPage').style.display = 'block';
+  }
+
+
+  function goToNextStep(currentPage) {
+    if (currentPage === 5) {
+      if (isDoctorMode) {
+        showPage(6);
+        updateProgress(6); // 你可新增 step5
+      } else {
+        diagnose();
+      }
+    } else {
+      showPage(currentPage + 1);
+      updateProgress(currentPage + 1);
+    }
+  }
+
+  /*const explanations = {
+    "發熱": "體溫上升",
+    "惡風": "風一吹就感到不舒服",
+    "汗出": "自汗、盜汗、出汗異常"
+  };
+  
+  function showExplanation(symptom) {
+    alert(`${symptom}：\n${explanations[symptom] || "目前無此症狀的詳細說明。"}`);
+  }*/
+
+  /*function toggleTooltip(button) {
+    // 關掉其他開啟的 tooltip
+    document.querySelectorAll('.tooltip-wrapper').forEach(wrapper => {
+      if (wrapper.contains(button)) {
+        wrapper.classList.toggle('active');
+      } else {
+        wrapper.classList.remove('active');
+      }
+    });
+
+    const wrapper=button.parentElement;
+    wrapper.classList.toggle('active');
+  }*/
+ function toggleTooltip(button) {
+    const wrapper = button.parentElement;
+
+    // 關閉所有其他 tooltip
+    document.querySelectorAll('.tooltip-wrapper.active').forEach(activeWrapper => {
+        if (activeWrapper !== wrapper) {
+            activeWrapper.classList.remove('active');
+        }
+    });
+
+    // 切換當前 tooltip 顯示狀態
+    wrapper.classList.toggle('active');
+  }
+
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.tooltip-wrapper')) {
+      document.querySelectorAll('.tooltip-wrapper').forEach(wrapper => {
+        wrapper.classList.remove('active');
+      });
+    }
+  });
+
   const patterns = [
     { name: "太陽中風", symptoms: ["發熱", "惡風", "汗出", "脈緩"], formula: "桂枝湯" },
     { name: "太陽傷寒", symptoms: ["惡寒", "無汗", "頭痛", "脈緊"], formula: "麻黃湯" },
@@ -164,7 +820,7 @@
     if (results.length > 0) {
       let html = "<ul>";
       results.forEach(r => {
-        html += `<li><strong>${r.name}</strong>（${r.probability}%）：建議湯方為 <strong>${r.formula}</strong></li>`;
+        html += `<li><strong>${r.name}</strong>（吻合度${r.probability}%）：建議湯方為 <strong>${r.formula}</strong></li>`;
       });
       html += "</ul>";
       resultBox.innerHTML = html;
