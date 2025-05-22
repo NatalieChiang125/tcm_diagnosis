@@ -786,7 +786,7 @@
           adjunctHTML = `
             <div id="adjunct-${index}" class="adjunct" style="display:none; margin-top:5px;">
               ${adjunctFormulas[formula]
-                .map(item => `<p><strong>輔湯建議：</strong>${item.condition}，可加入 <em>${item.adjunct}</em>。</p>`)
+                .map(item => `<p>◆ ${item.condition}，可加入 <strong><em>${item.adjunct}</em></strong>。</p>`)
                 .join("")}
             </div>`;
         }
