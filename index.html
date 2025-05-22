@@ -293,14 +293,14 @@
           <input type="checkbox" name="symptom" value="發熱"> 發熱
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">身體感覺發熱或體溫升高</span>
           </span>
         </label><br>
         <label>
           <input type="checkbox" name="symptom" value="惡風"> 惡風
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">怕風，風吹即覺不適</span>
           </span>
 
         </label><br>
@@ -308,21 +308,28 @@
           <input type="checkbox" name="symptom" value="汗出"> 汗出
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">身體自然出汗，通常是微汗</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="無汗"> 無汗
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">身體沒有出汗</span>
           </span>
         </label><br>
         <label>
           <input type="checkbox" name="symptom" value="惡寒"> 惡寒
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">怕冷，甚至風吹就發抖，不易取暖</span>
           </span>
         </label><br>
         <label>
           <input type="checkbox" name="symptom" value="頭痛"> 頭痛
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">頭部疼痛</span>
           </span>
         </label><br>
         <label>
@@ -368,7 +375,7 @@
           <input type="checkbox" name="symptom" value="脈洪大"> 脈洪大
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">脈象大而有力、來勢洶洶 </span>
           </span>
         </label><br>
       </details>
@@ -470,12 +477,13 @@
     <div class="page" id="doctorPage" style="display: none;">
       <h2>病患資料總覽</h2>
       <div id="summaryTable"></div>
+      <div id="suggestedFormula"></div>
     </div>
 
     <div class="page" id="citizenSummaryPage" style="display: none;">
       <h2>您的體質分析結果</h2>
       <div id="summaryTable2"></div>
-      <div id="suggestedFormula"></div>
+      <div id="suggestedFormula2"></div>
     </div>
 
   </section>
@@ -641,6 +649,48 @@
       </table>
     `;
 
+    // 3. 根據症狀匹配湯方
+    const matches = patterns.map(pattern => {
+        const matchedSymptoms = pattern.symptoms.filter(symptom => symptoms.includes(symptom));
+        const matchRate = matchedSymptoms.length / pattern.symptoms.length;
+        return { ...pattern, matchRate };
+    }).filter(pattern => pattern.matchRate >= 0.5);
+
+
+    //let formula = "暫無建議湯方";
+    //let condition = "無法判斷，請諮詢中醫師";
+    //let ingredients = "";
+    let suggestionHTML = "<h3>建議湯方</h3>";
+    if (matches.length>0) {
+      matches.forEach(match => {
+        const formula = match.formula;
+        const condition = match.name;
+        const matchPercentage = Math.round(match.matchRate * 100);
+        // 假設湯方配方
+        const formulaIngredients = {
+            "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
+            "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
+            "白虎湯": ["石膏", "知母", "甘草", "粳米"],
+            "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
+            "理中湯": ["人參", "白朮", "甘草", "乾薑"]
+        };
+
+        const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
+        
+        // 4. 顯示建議湯方
+        suggestionHTML += `
+          <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-top: 10px;">
+            <p><strong>病症分類：</strong> ${condition}(${matchPercentage}% 匹配)</p>
+            <p><strong>湯方：</strong> ${formula}</p>
+            <p><strong>配方：</strong> ${ingredients}</p>
+          </div>
+        `;
+      });
+    } else {
+        suggestionHTML += "<p>暫無建議湯方，請諮詢中醫師。</p>";
+    }
+    document.getElementById('suggestedFormula').innerHTML = suggestionHTML;
+
     document.getElementById('summaryTable').innerHTML = summary;
     document.getElementById('doctorPage').style.display = 'block';
   }
@@ -696,9 +746,9 @@
     //let formula = "暫無建議湯方";
     //let condition = "無法判斷，請諮詢中醫師";
     //let ingredients = "";
-    let suggestionHTML = "<h3>建議湯方</h3>";
+    let suggestionHTML2 = "<h3>建議湯方</h3>";
     if (matches.length>0) {
-      matches.forEach(match => {
+      matches.forEach((match, index) => {
         const formula = match.formula;
         const condition = match.name;
         const matchPercentage = Math.round(match.matchRate * 100);
@@ -708,24 +758,54 @@
             "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
             "白虎湯": ["石膏", "知母", "甘草", "粳米"],
             "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
-            "理中湯": ["人參", "白朮", "甘草", "乾薑"]
+            "理中湯": ["人參", "白朮", "甘草", "乾薑"],
+            "葛根湯": ["葛根", "麻黃", "桂枝", "芍藥", "甘草", "生薑", "大棗"]
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
         
+        const adjunctFormulas = {
+          "桂枝湯": [
+            { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
+            { condition: "若呼吸急促、氣逆、咳喘等症狀", adjunct: "樸杏湯(厚樸、杏仁)" },
+            { condition: "胸部悶滿", adjunct: "芍藥湯"},
+            { condition: "服了桂枝湯，大量出汗之後，出現心煩、口渴嚴重", adjunct: "白虎加人參湯"},
+            { condition: "面部出紅、身體有瘙癢的感覺、感到非常怕冷", adjunct: "麻黃湯"},
+            { condition: "頭項部強痛、持續微微發熱、沒有發汗、小便不太順", adjunct: "茯苓白朮湯"}
+          ],
+          "小柴胡湯": [
+            { condition: "若合併口苦咽乾或胸悶", adjunct: "半夏瀉心湯" }
+          ]
+        };
+
+        /* 你原來的配方 map … */
+
+        // ---------- 動態組裝多組輔湯 ----------
+        let adjunctHTML = "";
+        if (adjunctFormulas[formula]) {
+          adjunctHTML = `
+            <div id="adjunct-${index}" class="adjunct" style="display:none; margin-top:5px;">
+              ${adjunctFormulas[formula]
+                .map(item => `<p><strong>輔湯建議：</strong>${item.condition}，可加入 <em>${item.adjunct}</em>。</p>`)
+                .join("")}
+            </div>`;
+        }
+
         // 4. 顯示建議湯方
-        suggestionHTML += `
+        suggestionHTML2 += `
           <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-top: 10px;">
             <p><strong>病症分類：</strong> ${condition}(${matchPercentage}% 匹配)</p>
             <p><strong>湯方：</strong> ${formula}</p>
             <p><strong>配方：</strong> ${ingredients}</p>
-          </div>
-        `;
+            ${adjunctHTML
+              ? `<button onclick="toggleAdjunct('adjunct-${index}', this)" style="cursor:pointer;background:none;border:none;color:#007bff;">&#9660; 顯示輔湯建議</button>${adjunctHTML}`
+              : ""}
+          </div>`;
       });
     } else {
-        suggestionHTML += "<p>暫無建議湯方，請諮詢中醫師。</p>";
+        suggestionHTML2 += "<p>暫無建議湯方，請諮詢中醫師。</p>";
     }
-    document.getElementById('suggestedFormula').innerHTML = suggestionHTML;
+    document.getElementById('suggestedFormula2').innerHTML = suggestionHTML2;
     //document.getElementById('suggestedFormula').style.display = 'block';
     document.getElementById('citizenSummaryPage').style.display = 'block';
   }
@@ -743,6 +823,13 @@
       showPage(currentPage + 1);
       updateProgress(currentPage + 1);
     }
+  }
+
+  function toggleAdjunct(id, btn) {
+    const div = document.getElementById(id);
+    const isHidden = div.style.display === "none";
+    div.style.display = isHidden ? "block" : "none";
+    btn.innerHTML     = isHidden ? "&#9650; 收起輔湯建議" : "&#9660; 顯示輔湯建議";
   }
 
   /*const explanations = {
@@ -792,8 +879,9 @@
   });
 
   const patterns = [
-    { name: "太陽中風", symptoms: ["發熱", "惡風", "汗出", "脈緩"], formula: "桂枝湯" },
-    { name: "太陽傷寒", symptoms: ["惡寒", "無汗", "頭痛", "脈緊"], formula: "麻黃湯" },
+    { name: "太陽病", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
+    { name: "太陽傷寒", symptoms: ["發熱", "無汗"], formula: "麻黃湯" },
+    { name: "太陽與陽明兩經合病", symptoms: ["惡寒", "無汗"], formula: "葛根湯" },
     { name: "陽明經證", symptoms: ["大熱", "大汗", "大渴", "脈洪大"], formula: "白虎湯" },
     { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不欲飲食"], formula: "小柴胡湯" },
     { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" }
