@@ -297,6 +297,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="發潮熱"> 潮熱
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">一天某些時段出現像海潮一樣的發熱</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="惡風"> 惡風
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -319,6 +326,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="自汗"> 自汗
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">沒有活動或發熱，卻自然一直出汗</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="惡寒"> 惡寒
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -333,17 +347,17 @@
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="脈緩"> 脈緩
+          <input type="checkbox" name="symptom" value="咳嗽"> 咳嗽
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">咳嗽</span>
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="脈緊"> 脈緊
+          <input type="checkbox" name="symptom" value="氣喘"> 氣喘
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">呼吸急促、呼吸不順，會感覺「氣不夠用」</span>
           </span>
         </label><br>
       </details>
@@ -368,74 +382,166 @@
           <input type="checkbox" name="symptom" value="大渴"> 大渴
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
-          </span>
-        </label><br>
-        <label>
-          <input type="checkbox" name="symptom" value="脈洪大"> 脈洪大
-          <span class="tooltip-wrapper">
-            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">脈象大而有力、來勢洶洶 </span>
+            <span class="tooltip-text">口渴</span>
           </span>
         </label><br>
       </details>
 
       <details class="symptom-group">
-        <summary>少陽/半表半裏</summary>
-        <label>
-          <input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來
-          <span class="tooltip-wrapper">
-            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
-          </span>
-        </label><br>
+        <summary>少陽/半表半裏(內熱、胃腸實熱為主)</summary>
         <label>
           <input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">胸部滿悶</span>
           </span>
         </label><br>
         <label>
           <input type="checkbox" name="symptom" value="心煩"> 心煩
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">心煩</span>
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="不欲飲食"> 不欲飲食
+          <input type="checkbox" name="symptom" value="不欲飲食"> 不能進食
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">本該有食慾，但反而不吃，不想吃、吃不下</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="不知食味"> 不知食味
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">食慾全無</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="大便困難"> 大便困難
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">無法順利排便</span>
           </span>
         </label><br>
       </details>
 
       <details class="symptom-group">
-        <summary>太陰/虛寒</summary>
+        <summary>太陰/虛寒(中焦虛寒)</summary>
         <label>
-          <input type="checkbox" name="symptom" value="腹痛"> 腹痛
+          <input type="checkbox" name="symptom" value="腹痛"> 少腹脹滿證
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">下腹部感到脹脹的，甚至發脹發悶、不舒服，有壓迫感或滿脹感，但不一定是疼痛</span>
           </span>
         </label><br>
         <label>
           <input type="checkbox" name="symptom" value="吐利"> 吐利
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">吐</span>
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="四肢不溫"> 四肢不溫
+          <input type="checkbox" name="symptom" value="下利"> 下利
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">腹瀉</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="乾嘔"> 乾嘔
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">想吐但吐不出東西</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="噎氣證"> 噎氣證
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胸中阻塞，氣上不通，出現吞嚥不暢或氣噎感</span>
+          </span>
+        </label><br>
+        
+      </details>
+
+      <details class="symptom-group">
+        <summary>小便/水腫/腎臟相關</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="小便不利"> 小便不利
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">小便不順</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="遺尿"> 遺尿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">小便不自主、控制不了尿液而流出</span>
           </span>
         </label><br>
       </details>
+
+      <details class="symptom-group">
+        <summary>語言異常</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="譫語"> 譫語
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胡言亂語、說話顛三倒四、神志不清</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="言語譫妄"> 言語譫妄
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胡言亂語</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="言語不利"> 言語不利
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">說話不流利、不清楚，或不太會講話</span>
+          </span>
+        </label><br>
+      </details>
+
+      <details class="symptom-group">
+        <summary>誤治</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="服了桂枝湯，內熱擾心"> 服了桂枝湯，內熱擾心
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">出現心煩</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="服了桂枝湯，口渴嚴重"> 服了桂枝湯，口渴嚴重
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">喝很多水也無法緩解口渴</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="誤用攻下法"> 誤用攻下法
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">誤用瀉藥</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="誤用了燒針"> 誤用了燒針
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">誤用了燒針</span>
+          </span>
+        </label><br>
+        
+      </details>
+
 
       <button type="button" onclick="previousStep()">上一步</button>
       <button type="reset">清除重選</button>
@@ -443,12 +549,6 @@
       
     </form>
 
-    <div class="card" id="result">
-      <h2>診斷結果：</h2>
-      <p class="subdevise">以下結果為系統推論僅供參考</p>
-      <p class="subheading">結果顯示代表您可能的病症和您符合此病症的吻合度，並提供您此病症建議的湯方</p>
-      <div id="resultText" class="result-box">請勾選症狀後點擊提交診斷。</div>
-    </div>
   </section>
 
   <section id="page5" class="page" style="display:none;">
@@ -459,32 +559,38 @@
       <label><input type="checkbox" name="pulse" value="浮脈"> 浮脈</label><br>
       <label><input type="checkbox" name="pulse" value="沉脈"> 沉脈</label><br>
       <label><input type="checkbox" name="pulse" value="緩脈"> 緩脈</label><br>
+      <label><input type="checkbox" name="pulse" value="緩脈"> 緊脈</label><br>
       <label><input type="checkbox" name="pulse" value="數脈"> 數脈</label><br>
       <label><input type="checkbox" name="pulse" value="滑脈"> 滑脈</label><br>
-      <label><input type="checkbox" name="pulse" value="澀脈"> 澀脈</label><br><br>
+      <label><input type="checkbox" name="pulse" value="澀脈"> 澀脈</label><br>
+      <label><input type="checkbox" name="pulse" value="脈象洪大"> 脈象洪大</label><br>
+      <label><input type="checkbox" name="pulse" value="脈象洪大"> 脈象微弱</label><br>
       <button type="button" onclick="previousStep()">上一步</button>
       <button type="button" onclick="showPage(6)">判斷病症</button>
       
     </form>
 
-    <div id="pulseResult" class="card" style="margin-top:1em;">
-      <h2>可能的病症</h2>
-      <p>請先完成前三步並點擊判斷病症。</p>
-    </div>
+
   </section>
 
   <section id="page6" class="page" style="display:none;">
     <div class="page" id="doctorPage" style="display: none;">
       <h2>病患資料總覽</h2>
+      <p class="subdevise">以下結果為系統推論僅供參考</p>
       <div id="summaryTable"></div>
       <div id="suggestedFormula"></div>
     </div>
 
     <div class="page" id="citizenSummaryPage" style="display: none;">
       <h2>您的體質分析結果</h2>
+      <p class="subdevise">以下結果為系統推論僅供參考</p>
+      <p class="subheading">結果顯示代表您可能的病症和您符合此病症的吻合度，並提供您此病症建議的湯方</p>
       <div id="summaryTable2"></div>
       <div id="suggestedFormula2"></div>
     </div>
+
+    <button type="button" onclick="previousStep()">上一步</button>
+    <button type="button" onclick="clearInputs(); showPage(1)">回首頁</button>
 
   </section>
 
@@ -545,6 +651,22 @@
     updateProgress(pageNum);
     //updateProgress(pageNum);
   }
+
+  function clearInputs() {
+    // 清除所有 checkbox、radio、text、textarea、select 等欄位
+    const formElements = document.querySelectorAll('input, textarea, select');
+
+    formElements.forEach(el => {
+        if (el.type === 'checkbox' || el.type === 'radio') {
+            el.checked = false;
+        } else if (el.tagName === 'SELECT') {
+            el.selectedIndex = 0; // 回到第一個選項
+        } else {
+            el.value = ''; // 清除文字欄位
+        }
+    });
+  }
+
 
   function updateProgress(step) {
     for (let i = 1; i <= 5; i++) {
@@ -759,7 +881,10 @@
             "白虎湯": ["石膏", "知母", "甘草", "粳米"],
             "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
             "理中湯": ["人參", "白朮", "甘草", "乾薑"],
-            "葛根湯": ["葛根", "麻黃", "桂枝", "芍藥", "甘草", "生薑", "大棗"]
+            "葛根湯": ["葛根", "麻黃", "桂枝", "芍藥", "甘草", "生薑", "大棗"],
+            "小青龍湯": ["麻黃", "桂枝", "芍藥", "甘草", "乾薑", "細辛", "五味子", "半夏"],
+            "大承氣湯": ["大黃", "厚朴", "枳實", "芒硝"],
+            "小承氣湯": ["大黃", "厚朴", "枳實"]
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
@@ -767,14 +892,18 @@
         const adjunctFormulas = {
           "桂枝湯": [
             { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
-            { condition: "若呼吸急促、氣逆、咳喘等症狀", adjunct: "樸杏湯(厚樸、杏仁)" },
-            { condition: "胸部悶滿", adjunct: "芍藥湯"},
-            { condition: "服了桂枝湯，大量出汗之後，出現心煩、口渴嚴重", adjunct: "白虎加人參湯"},
-            { condition: "面部出紅、身體有瘙癢的感覺、感到非常怕冷", adjunct: "麻黃湯"},
-            { condition: "頭項部強痛、持續微微發熱、沒有發汗、小便不太順", adjunct: "茯苓白朮湯"}
+            { condition: "若呼吸急促、氣逆、咳喘等症狀", adjunct: "樸杏湯" },
+            { condition: "胸部悶滿", adjunct: "「去」芍藥湯"},
+            { condition: "汗出不斷、小便困難而不暢、四肢微急，難以屈伸", adjunct: "附子湯"},
+            { condition: "怕冷，甚至風吹就發抖，不易取暖", adjunct: "「去」芍藥加附子湯"},
+            { condition: "服桂枝湯後，寒熱交替，一天發作兩次", adjunct: "麻黃湯(桂枝二麻黃一湯)"},
+            { condition: "面部出紅、身體有瘙癢的感覺、感到非常怕冷", adjunct: "麻黃湯(桂枝麻黃各半湯)"},
+            { condition: "頭項部強痛、持續微微發熱、沒有發汗、小便不太順", adjunct: "茯苓白朮湯"},
+            { condition: "發熱怕冷，熱多寒少", adjunct: "越婢湯(桂枝二越婢一湯)"},
           ],
-          "小柴胡湯": [
-            { condition: "若合併口苦咽乾或胸悶", adjunct: "半夏瀉心湯" }
+          "葛根湯": [
+            { condition: "若沒有腹瀉，而有嘔吐", adjunct: "半夏湯" },
+            { condition: "曾服用腹瀉藥，導致氣喘、出汗、腹瀉不止、口渴", adjunct: "黃芩黃連湯" }
           ]
         };
 
@@ -879,12 +1008,17 @@
   });
 
   const patterns = [
-    { name: "太陽病", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
-    { name: "太陽傷寒", symptoms: ["發熱", "無汗"], formula: "麻黃湯" },
-    { name: "太陽與陽明兩經合病", symptoms: ["惡寒", "無汗"], formula: "葛根湯" },
-    { name: "陽明經證", symptoms: ["大熱", "大汗", "大渴", "脈洪大"], formula: "白虎湯" },
+    { name: "太陽中風證", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
+    { name: "太陽傷寒", symptoms: ["發熱", "無汗", "惡寒"], formula: "麻黃湯" },
+    { name: "太陽與陽明兩經合病", symptoms: ["惡寒", "無汗", "下利"], formula: "葛根湯" },
     { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不欲飲食"], formula: "小柴胡湯" },
-    { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" }
+    { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" },
+    { name: "太陽傷寒證", symptoms: ["乾嘔", "發熱", "咳嗽", "口渴", "下利","噎氣證", "小便不利", "少腹脹滿證", "氣喘"], formula: "小青龍湯" },
+    { name: "太陽傷寒證", symptoms: ["發熱", "咳嗽", "氣喘"], formula: "小青龍湯" },
+    { name: "陽旦證", symptoms: ["頭痛", "惡寒", "發熱", "乾嘔", "汗出"], formula: "陽旦湯" },
+    { name: "陽明兼少陽、太陽三陽合病", symptoms: ["少腹脹滿證", "言語不利", "不知食味", "譫語", "遺尿", "自汗"], formula: "白虎湯" },
+    { name: "陽明病", symptoms: ["譫語", "潮熱", "不能進食"], formula: "大承氣湯" },
+    { name: "陽明病", symptoms: ["譫語", "潮熱"], formula: "小承氣湯" },
   ];
 
   document.getElementById('diagnosisForm').addEventListener('submit', function (e) {
