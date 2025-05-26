@@ -340,6 +340,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="不惡寒"> 不惡寒
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">不怕冷</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="頭痛"> 頭痛
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -365,24 +372,115 @@
       <details class="symptom-group">
         <summary>陽明/實熱證</summary>
         <label>
-          <input type="checkbox" name="symptom" value="大熱"> 大熱
+          <input type="checkbox" name="symptom" value="反惡熱"> 反惡熱
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">怕熱</span>
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="大汗"> 大汗
+          <input type="checkbox" name="symptom" value="臥起不安"> 臥起不安
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">體溫上升</span>
+            <span class="tooltip-text">躺下與起身都不舒服</span>
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="大渴"> 大渴
+          <input type="checkbox" name="symptom" value="四肢疼"> 四肢疼
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">口渴</span>
+            <span class="tooltip-text">四肢肌肉或關節部位感到疼痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="內拘急"> 內拘急
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">筋脈或肢體僵硬拘攣不舒，難以伸展或活動</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="胸中煩熱"> 胸中煩熱
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胸部感覺內熱煩躁不安</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="身熱不去"> 身熱不去
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">持續發熱，熱勢不退</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="夜熱而渴"> 夜熱而渴
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">晚上發熱，並伴有口渴</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="少腹急結"> 少腹急結
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">下腹部硬硬的、緊繃不舒服，有壓痛感</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="少腹鞕滿"> 少腹鞕滿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">小腹部位（肚臍以下）脹滿而堅硬</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="肛門灼熱"> 肛門灼熱
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">排便時肛門有燒灼感</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="腹滿"> 腹滿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">腹部有脹滿感</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="心下鞕痛"> 心下鞕痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">上腹部堅硬且痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="心下痞鞕滿"> 心下痞鞕滿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">上腹部除了疼痛，還有不舒服的脹滿感和結塊感</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="心下按之則痛"> 心下按之則痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">中上腹部壓下去會疼痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="身目發黃"> 身目發黃
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">全身與眼睛皮膚泛黃</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="身黃"> 身黃
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">全身皮膚泛黃</span>
           </span>
         </label><br>
       </details>
@@ -393,7 +491,35 @@
           <input type="checkbox" name="symptom" value="胸脅苦滿"> 胸脅苦滿
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
-            <span class="tooltip-text">胸部滿悶</span>
+            <span class="tooltip-text">胸部側面（肋骨下緣處）脹悶不舒、隱痛、情志不暢</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="胸中痞滿"> 胸中痞滿
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胸部中央至膻中部悶脹感</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="引脅下痛"> 引脅下痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">疼痛由胸脅部牽引到肋骨下緣的部位</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="心下急"> 心下急
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">心窩處緊張疼痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="寒熱往來"> 寒熱往來
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">時而發熱，時而怕冷</span>
           </span>
         </label><br>
         <label>
@@ -404,7 +530,35 @@
           </span>
         </label><br>
         <label>
-          <input type="checkbox" name="symptom" value="不欲飲食"> 不能進食
+          <input type="checkbox" name="symptom" value="身重"> 身重
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">身體沉重</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="咽燥"> 咽燥
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">咽喉乾燥</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="口苦"> 口苦
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">口中發苦</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="目眩"> 目眩
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">頭暈眼花</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="不能飲食"> 不能進食
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">本該有食慾，但反而不吃，不想吃、吃不下</span>
@@ -429,10 +583,31 @@
       <details class="symptom-group">
         <summary>太陰/虛寒(中焦虛寒)</summary>
         <label>
-          <input type="checkbox" name="symptom" value="腹痛"> 少腹脹滿證
+          <input type="checkbox" name="symptom" value="少腹脹滿證"> 少腹脹滿證
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">下腹部感到脹脹的，甚至發脹發悶、不舒服，有壓迫感或滿脹感，但不一定是疼痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="腹中痛"> 腹中痛
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">腹部疼痛</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="厥冷"> 厥冷
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">肢體冰冷比一般的惡寒更嚴重</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="厥逆"> 厥逆
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">氣血逆亂，造成肢體冰冷，脈象微弱，患者常感四肢冰冷或麻木</span>
           </span>
         </label><br>
         <label>
@@ -476,6 +651,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="小便自利"> 小便自利
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">小便通暢、甚至偏多而無阻滯，但出現在一些「水腫不退」、「腹瀉」等病情</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="遺尿"> 遺尿
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -485,7 +667,26 @@
       </details>
 
       <details class="symptom-group">
-        <summary>語言異常</summary>
+        <summary>婦科 / 血瘀相關</summary>
+        <label>
+          <input type="checkbox" name="symptom" value="經水適來"> 經水適來
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">月經剛來</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="下血乃愈"> 下血乃愈
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">出血後病情改善</span>
+          </span>
+        </label><br>
+        
+      </details>
+
+      <details class="symptom-group">
+        <summary>神情、語言異常</summary>
         <label>
           <input type="checkbox" name="symptom" value="譫語"> 譫語
           <span class="tooltip-wrapper">
@@ -505,6 +706,20 @@
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">說話不流利、不清楚，或不太會講話</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="如狂"> 如狂
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">看起來像瘋了一樣，言語、行為失常，胡言亂語</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="發狂"> 發狂
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">神明失常、狂躁</span>
           </span>
         </label><br>
       </details>
@@ -784,7 +999,7 @@
     //let ingredients = "";
     let suggestionHTML = "<h3>建議湯方</h3>";
     if (matches.length>0) {
-      matches.forEach(match => {
+      matches.forEach((match, index) => {
         const formula = match.formula;
         const condition = match.name;
         const matchPercentage = Math.round(match.matchRate * 100);
@@ -793,16 +1008,73 @@
             "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
             "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
             "白虎湯": ["石膏", "知母", "甘草", "粳米"],
-            "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
             "理中湯": ["人參", "白朮", "甘草", "乾薑"],
             "葛根湯": ["葛根", "麻黃", "桂枝", "芍藥", "甘草", "生薑", "大棗"],
             "小青龍湯": ["麻黃", "桂枝", "芍藥", "甘草", "乾薑", "細辛", "五味子", "半夏"],
             "大承氣湯": ["大黃", "厚朴", "枳實", "芒硝"],
             "小承氣湯": ["大黃", "厚朴", "枳實"],
-            "陽旦湯": ["桂枝", "芍藥", "甘草", "生薑", "大棗", "黃芩"]
+            "陽旦湯": ["桂枝", "芍藥", "甘草", "生薑", "大棗", "黃芩"],
+            "桃核承氣湯": ["大黃", "芒硝", "甘草", "桃核", "桂枝"],
+            "抵當湯": ["大黃", "桃仁", "水蛭", "虻蟲"],
+            "大陷胸湯": ["大黃", "芒硝", "甘遂"],
+            "十棗湯": ["大棗", "甘遂", "芫花", "大戟"],
+            "梔子豉湯": ["梔子", "豆豉"],
+            "茵陳蒿湯": ["梔子", "大黃", "茵陳蒿"],
+            "梔子柏皮湯": ["梔子", "黃柏", "甘草"],
+            "梔子厚朴湯": ["梔子", "厚朴", "枳實"],
+            "梔子乾薑湯": ["梔子", "乾薑"],
+            "小柴胡湯": ["柴胡", "黃苓", "人參", "半夏", "甘草", "大棗", "生薑"],
+            "大柴胡湯": ["柴胡", "黃苓", "半夏", "大棗", "生薑", "枳實", "芍藥", "大黃"],
+            "黃芩湯": ["黃苓", "芍藥", "甘草", "大棗"],
+            "黃連湯": ["黃連", "桂枝", "甘草", "乾薑", "半夏", "大棗", "人參"],
+            "四逆湯": ["柴胡", "芍藥", "枳實", "甘草"],
+            "瓜蒂散": ["瓜蒂", "赤小豆", "香豉"]
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
+        
+        const adjunctFormulas2 = {
+          "桂枝湯": [
+            { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
+            { condition: "若呼吸急促、氣逆、咳喘等症狀", adjunct: "樸杏湯" },
+            { condition: "胸部悶滿", adjunct: "「去」芍藥湯"},
+            { condition: "汗出不斷、小便困難而不暢、四肢微急，難以屈伸", adjunct: "附子湯"},
+            { condition: "怕冷，甚至風吹就發抖，不易取暖", adjunct: "「去」芍藥加附子湯"},
+            { condition: "服桂枝湯後，寒熱交替，一天發作兩次", adjunct: "麻黃湯(桂枝二麻黃一湯)"},
+            { condition: "面部出紅、身體有瘙癢的感覺、感到非常怕冷", adjunct: "麻黃湯(桂枝麻黃各半湯)"},
+            { condition: "頭項部強痛、持續微微發熱、沒有發汗、小便不太順", adjunct: "茯苓白朮湯"},
+            { condition: "發熱怕冷，熱多寒少", adjunct: "越婢湯(桂枝二越婢一湯)"}
+          ],
+          "葛根湯": [
+            { condition: "若沒有腹瀉，而有嘔吐", adjunct: "半夏湯" },
+            { condition: "曾服用腹瀉藥，導致氣喘、出汗、腹瀉不止、口渴", adjunct: "黃芩黃連湯" }
+          ],
+          "梔子豉湯": [
+            { condition: "心悸，不寐", adjunct: "甘草" },
+            { condition: "嘔吐，胃中不和(消化不良、食欲不振、脘腹脹悶)", adjunct: "生薑" },
+            { condition: "胃中不和(消化不良、食欲不振、脘腹脹悶)", adjunct: "枳實" },
+            { condition: "大便秘結(糞便乾硬，排便困難)", adjunct: "枳實、大黃湯" }
+          ],
+          "小柴胡湯": [
+            { condition: "大便不通", adjunct: "芒硝" },
+            { condition: "發熱、頭痛、項強(頸部僵硬)", adjunct: "桂枝、芍藥" },
+            { condition: "發熱、頭痛、項強", adjunct: "枳實、大黃湯" }
+          ],
+          "黃芩湯": [
+            { condition: "想嘔吐或反胃，胸部與肋間部感覺不舒適、悶痛", adjunct: "薑半湯(生薑、半夏)" }
+        
+          ]
+        };
+
+        let adjunctHTML2 = "";
+        if (adjunctFormulas2[formula]) {
+          adjunctHTML2 = `
+            <div id="adjunct-${index}" class="adjunct" style="display:none; margin-top:5px;">
+              ${adjunctFormulas2[formula]
+                .map(item => `<p>◆ ${item.condition}，可加入 <strong><em>${item.adjunct}</em></strong>。</p>`)
+                .join("")}
+            </div>`;
+        }
         
         // 4. 顯示建議湯方
         suggestionHTML += `
@@ -810,6 +1082,9 @@
             <p><strong>病症分類：</strong> ${condition}(${matchPercentage}% 匹配)</p>
             <p><strong>湯方：</strong> ${formula}</p>
             <p><strong>配方：</strong> ${ingredients}</p>
+            ${adjunctHTML2
+              ? `<button onclick="toggleAdjunct('adjunct-${index}', this)" style="cursor:pointer;background:none;border:none;color:#007bff;">&#9660; 顯示輔湯建議</button>${adjunctHTML2}`
+              : ""}
           </div>
         `;
       });
@@ -843,25 +1118,6 @@
     document.getElementById('summaryTable2').innerHTML = summaryHTML;
     //console.log("勾選的症狀：", selected);
 
-
-    //亂寫邏輯
-   /* let formula = '';
-    let condition = '';
-
-    if (pulse === '細' && symptoms.includes('怕冷')) {
-      formula = '桂枝湯';
-      condition = '表虛、自汗、風寒感冒';
-    } else if (pulse === '滑' && symptoms.includes('口渴')) {
-      formula = '白虎湯';
-      condition = '內熱、陽明經症';
-    } else if (pulse === '沈' && symptoms.includes('腹脹')) {
-      formula = '四君子湯';
-      condition = '脾虛、氣短乏力';
-    } else {
-      formula = '暫無建議湯方';
-      condition = '無法判斷，請諮詢中醫師';
-    }*/
-
     // 3. 根據症狀匹配湯方
     const matches = patterns.map(pattern => {
         const matchedSymptoms = pattern.symptoms.filter(symptom => symptoms.includes(symptom));
@@ -884,13 +1140,28 @@
             "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
             "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
             "白虎湯": ["石膏", "知母", "甘草", "粳米"],
-            "小柴胡湯": ["柴胡", "黃芩", "人參", "甘草", "半夏", "生薑", "大棗"],
             "理中湯": ["人參", "白朮", "甘草", "乾薑"],
             "葛根湯": ["葛根", "麻黃", "桂枝", "芍藥", "甘草", "生薑", "大棗"],
             "小青龍湯": ["麻黃", "桂枝", "芍藥", "甘草", "乾薑", "細辛", "五味子", "半夏"],
             "大承氣湯": ["大黃", "厚朴", "枳實", "芒硝"],
             "小承氣湯": ["大黃", "厚朴", "枳實"],
-            "陽旦湯": ["桂枝", "芍藥", "甘草", "生薑", "大棗", "黃芩"]
+            "陽旦湯": ["桂枝", "芍藥", "甘草", "生薑", "大棗", "黃芩"],
+            "桃核承氣湯": ["大黃", "芒硝", "甘草", "桃核", "桂枝"],
+            "抵當湯": ["大黃", "桃仁", "水蛭", "虻蟲"],
+            "大陷胸湯": ["大黃", "芒硝", "甘遂"],
+            "十棗湯": ["大棗", "甘遂", "芫花", "大戟"],
+            "梔子豉湯": ["梔子", "豆豉"],
+            "茵陳蒿湯": ["梔子", "大黃", "茵陳蒿"],
+            "梔子柏皮湯": ["梔子", "黃柏", "甘草"],
+            "梔子厚朴湯": ["梔子", "厚朴", "枳實"],
+            "梔子乾薑湯": ["梔子", "乾薑"],
+            "小柴胡湯": ["柴胡", "黃苓", "人參", "半夏", "甘草", "大棗", "生薑"],
+            "大柴胡湯": ["柴胡", "黃苓", "半夏", "大棗", "生薑", "枳實", "芍藥", "大黃"],
+            "黃芩湯": ["黃苓", "芍藥", "甘草", "大棗"],
+            "黃連湯": ["黃連", "桂枝", "甘草", "乾薑", "半夏", "大棗", "人參"],
+            "四逆湯": ["柴胡", "芍藥", "枳實", "甘草"],
+            "瓜蒂散": ["瓜蒂", "赤小豆", "香豉"]
+            
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
@@ -905,11 +1176,26 @@
             { condition: "服桂枝湯後，寒熱交替，一天發作兩次", adjunct: "麻黃湯(桂枝二麻黃一湯)"},
             { condition: "面部出紅、身體有瘙癢的感覺、感到非常怕冷", adjunct: "麻黃湯(桂枝麻黃各半湯)"},
             { condition: "頭項部強痛、持續微微發熱、沒有發汗、小便不太順", adjunct: "茯苓白朮湯"},
-            { condition: "發熱怕冷，熱多寒少", adjunct: "越婢湯(桂枝二越婢一湯)"},
+            { condition: "發熱怕冷，熱多寒少", adjunct: "越婢湯(桂枝二越婢一湯)"}
           ],
           "葛根湯": [
             { condition: "若沒有腹瀉，而有嘔吐", adjunct: "半夏湯" },
             { condition: "曾服用腹瀉藥，導致氣喘、出汗、腹瀉不止、口渴", adjunct: "黃芩黃連湯" }
+          ],
+          "梔子豉湯": [
+            { condition: "心悸，不寐", adjunct: "甘草" },
+            { condition: "嘔吐，胃中不和(消化不良、食欲不振、脘腹脹悶)", adjunct: "生薑" },
+            { condition: "胃中不和(消化不良、食欲不振、脘腹脹悶)", adjunct: "枳實" },
+            { condition: "大便秘結(糞便乾硬，排便困難)", adjunct: "枳實、大黃湯" }
+          ],
+          "小柴胡湯": [
+            { condition: "大便不通", adjunct: "芒硝" },
+            { condition: "發熱、頭痛、項強(頸部僵硬)", adjunct: "桂枝、芍藥" },
+            { condition: "發熱、頭痛、項強", adjunct: "枳實、大黃湯" }
+          ],
+          "黃芩湯": [
+            { condition: "想嘔吐或反胃，胸部與肋間部感覺不舒適、悶痛", adjunct: "薑半湯(生薑、半夏)" }
+        
           ]
         };
 
@@ -967,29 +1253,7 @@
     btn.innerHTML     = isHidden ? "&#9650; 收起輔湯建議" : "&#9660; 顯示輔湯建議";
   }
 
-  /*const explanations = {
-    "發熱": "體溫上升",
-    "惡風": "風一吹就感到不舒服",
-    "汗出": "自汗、盜汗、出汗異常"
-  };
   
-  function showExplanation(symptom) {
-    alert(`${symptom}：\n${explanations[symptom] || "目前無此症狀的詳細說明。"}`);
-  }*/
-
-  /*function toggleTooltip(button) {
-    // 關掉其他開啟的 tooltip
-    document.querySelectorAll('.tooltip-wrapper').forEach(wrapper => {
-      if (wrapper.contains(button)) {
-        wrapper.classList.toggle('active');
-      } else {
-        wrapper.classList.remove('active');
-      }
-    });
-
-    const wrapper=button.parentElement;
-    wrapper.classList.toggle('active');
-  }*/
  function toggleTooltip(button) {
     const wrapper = button.parentElement;
 
@@ -1017,14 +1281,28 @@
     { name: "太陽中風證", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
     { name: "太陽傷寒", symptoms: ["發熱", "無汗", "惡寒"], formula: "麻黃湯" },
     { name: "太陽與陽明兩經合病", symptoms: ["惡寒", "無汗", "下利"], formula: "葛根湯" },
-    { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不欲飲食"], formula: "小柴胡湯" },
-    { name: "太陰證", symptoms: ["腹痛", "吐利", "四肢不溫"], formula: "理中湯" },
+    { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不能進食", "口苦", "咽燥", "目眩"], formula: "小柴胡湯" },
+    { name: "少陽與陽明合病", symptoms: ["寒熱往來", "胸脅苦滿", "吐利", "心下急", "大便困難", "腹中痛"], formula: "大柴胡湯" },
     { name: "太陽傷寒證", symptoms: ["乾嘔", "發熱", "咳嗽", "口渴", "下利","噎氣證", "小便不利", "少腹脹滿證", "氣喘"], formula: "小青龍湯" },
     { name: "太陽傷寒證", symptoms: ["發熱", "咳嗽", "氣喘"], formula: "小青龍湯" },
     { name: "陽旦證", symptoms: ["頭痛", "惡寒", "發熱", "乾嘔", "汗出"], formula: "陽旦湯" },
     { name: "陽明兼少陽、太陽三陽合病", symptoms: ["少腹脹滿證", "言語不利", "不知食味", "譫語", "遺尿", "自汗"], formula: "白虎湯" },
     { name: "陽明病", symptoms: ["譫語", "潮熱", "不能進食"], formula: "大承氣湯" },
     { name: "陽明病", symptoms: ["譫語", "潮熱"], formula: "小承氣湯" },
+    { name: "血瘀下焦證", symptoms: ["少腹急結", "如狂", "經水適來", "夜熱而渴", "腹中痛", "小便不利", "譫語"], formula: "桃核承氣湯" },
+    { name: "血瘀下焦證", symptoms: ["發狂", "少腹鞕滿", "小便自利", "下血乃愈"], formula: "抵當湯" },
+    { name: "結胸證", symptoms: ["心下鞕痛", "氣喘", "心煩", "小便不利"], formula: "大陷胸湯" },
+    { name: "小結胸病", symptoms: ["心下按之則痛", "胸中痞滿"], formula: "小陷胸湯" },
+    { name: "太陽中風證", symptoms: ["汗出", "頭痛", "心下痞鞕滿", "引脅下痛", "乾嘔", "氣喘", "不惡寒"], formula: "十棗湯" },
+    { name: "陽明病", symptoms: ["咽燥", "口苦", "腹滿", "氣喘", "發熱", "汗出", "不惡寒", "反惡熱", "身重", "心煩"], formula: "梔子豉湯" },
+    { name: "陽明腑實證", symptoms: ["心煩", "腹滿", "臥起不安"], formula: "梔子厚朴湯" },
+    { name: "陽明腑實證", symptoms: ["身熱不去", "心煩"], formula: "梔子乾薑湯" },
+    { name: "陽黃型濕熱證", symptoms: ["身黃", "發熱"], formula: "梔子柏皮湯" },
+    { name: "陽黃型濕熱證", symptoms: ["身目發黃", "發熱", "小便不利"], formula: "茵陳蒿湯" },
+    { name: "少陽病", symptoms: ["下利", "肛門灼熱", "腹中痛"], formula: "黃芩湯" },
+    { name: "寒熱錯雜", symptoms: ["胸中煩熱", "吐利", "下利"], formula: "黃連湯" },
+    { name: "少陰病", symptoms: ["汗出", "身熱不去", "內拘急", "四肢疼", "下利", "厥逆", "惡寒", "厥冷"], formula: "四逆湯" },
+    { name: "結胸證", symptoms: ["厥冷", "胸中煩熱", "心煩", "不能進食"], formula: "瓜蒂散" },
   ];
 
   document.getElementById('diagnosisForm').addEventListener('submit', function (e) {
