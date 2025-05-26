@@ -357,6 +357,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="項強"> 項強
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">後頸部僵硬、發緊，轉動不靈活，有時伴隨疼痛</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="咳嗽"> 咳嗽
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -414,6 +421,13 @@
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">持續發熱，熱勢不退</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="口渴"> 口渴
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">口中乾燥、想喝水的感覺</span>
           </span>
         </label><br>
         <label>
@@ -495,6 +509,13 @@
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">胸部側面（肋骨下緣處）脹悶不舒、隱痛、情志不暢</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="胸部滿悶"> 胸部滿悶
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">胸悶、呼吸不順，感覺胸口壓著一塊東西，喘不過氣，或覺得悶痛</span>
           </span>
         </label><br>
         <label>
@@ -1382,6 +1403,7 @@
   const patterns = [
     { name: "太陽中風證", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
     { name: "太陽傷寒", symptoms: ["發熱", "無汗", "惡寒"], formula: "麻黃湯" },
+    { name: "太陽與陽明兩經合病", symptoms: ["氣喘", "胸部滿悶", "頭痛", "項強", "發熱", "口渴", "下利"], formula: "麻黃湯" },
     { name: "太陽與陽明兩經合病", symptoms: ["惡寒", "無汗", "下利"], formula: "葛根湯" },
     { name: "少陽證", symptoms: ["寒熱往來", "胸脅苦滿", "心煩", "不能進食", "口苦", "咽燥", "目眩"], formula: "小柴胡湯" },
     { name: "少陽與陽明合病", symptoms: ["寒熱往來", "胸脅苦滿", "吐利", "心下急", "大便困難", "腹中痛"], formula: "大柴胡湯" },
