@@ -1003,7 +1003,7 @@
         const formula = match.formula;
         const condition = match.name;
         const matchPercentage = Math.round(match.matchRate * 100);
-        // 假設湯方配方
+        // 假設湯方配方(要新增，和1140相同)
         const formulaIngredients = {
             "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
             "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
@@ -1032,7 +1032,7 @@
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
-        
+        // 副湯方配方(要新增，和1170相同)
         const adjunctFormulas2 = {
           "桂枝湯": [
             { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
