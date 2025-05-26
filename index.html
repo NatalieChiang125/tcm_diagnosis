@@ -286,6 +286,8 @@
     </form>
   </section>
 
+  //加入疾病的項目(要刪掉)
+
   <section id="page4" class="page" style="display:none;">
     <form id="diagnosisForm" class="card">
       <details class="symptom-group" open>
@@ -1009,6 +1011,7 @@
         //Alvin1587536
         //林怡勳
         // 假設湯方配方(要新增，和1140相同)
+        //加入湯方(要刪掉)
         const formulaIngredients = {
             "桂枝湯": ["桂枝", "白芍", "甘草", "生薑", "大棗"],
             "麻黃湯": ["麻黃", "桂枝", "杏仁", "甘草"],
@@ -1038,6 +1041,7 @@
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
         // 副湯方配方(要新增，和1170相同)
+        //加入副湯方(要刪掉)
         const adjunctFormulas2 = {
           "桂枝湯": [
             { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
@@ -1141,6 +1145,7 @@
         const condition = match.name;
         const matchPercentage = Math.round(match.matchRate * 100);
         // 假設湯方配方
+        //加入湯方(要刪掉)
         const formulaIngredients = {
             "桂枝湯": ["桂枝", "芍藥", "甘草", "大棗", "生薑"],
             "桂枝加桂湯": ["桂枝", "芍藥", "甘草", "大棗", "生薑"],
@@ -1262,7 +1267,7 @@
         };
 
         const ingredients = formulaIngredients[formula]?.join(", ") || "無配方資料";
-        
+        //加入副湯方(要刪掉)
         const adjunctFormulas = {
           "桂枝湯": [
             { condition: "若脖子與背部緊繃、僵硬、不舒適、低頭抬頭都不靈", adjunct: "葛根湯" },
@@ -1373,7 +1378,7 @@
       });
     }
   });
-
+//加入勾選疾病及配對湯方(要刪掉)
   const patterns = [
     { name: "太陽中風證", symptoms: ["發熱", "惡風", "汗出", "頭痛"], formula: "桂枝湯" },
     { name: "太陽傷寒", symptoms: ["發熱", "無汗", "惡寒"], formula: "麻黃湯" },
