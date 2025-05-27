@@ -583,6 +583,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="便膿血"> 便膿血
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">排便時出現膿與血混雜的情況</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="津液內竭"> 津液內竭
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -843,6 +850,13 @@
           </span>
         </label><br>
         <label>
+          <input type="checkbox" name="symptom" value="蚘厥"> 蚘厥
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">因蟲積導致四肢冰冷、煩躁</span>
+          </span>
+        </label><br>
+        <label>
           <input type="checkbox" name="symptom" value="吐利"> 吐利
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
@@ -854,6 +868,13 @@
           <span class="tooltip-wrapper">
             <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
             <span class="tooltip-text">腹瀉</span>
+          </span>
+        </label><br>
+        <label>
+          <input type="checkbox" name="symptom" value="久利"> 久利
+          <span class="tooltip-wrapper">
+            <button type="button" class="infobutton explain-btn" onclick="toggleTooltip(this)">ℹ</button>
+            <span class="tooltip-text">長期腹瀉</span>
           </span>
         </label><br>
         <label>
@@ -1782,6 +1803,7 @@
     { name: "血瘀下焦證", symptoms: ["少腹急結", "如狂", "經水適來", "夜熱而渴", "腹中痛", "小便不利", "譫語"], formula: "桃核承氣湯" },
     { name: "血瘀下焦證", symptoms: ["發狂", "少腹鞕滿", "小便自利", "下血乃愈"], formula: "抵當湯" },
     { name: "結胸證", symptoms: ["心下鞕痛", "氣喘", "心煩", "小便不利"], formula: "大陷胸湯" },
+    { name: "太陽病(結胸證)", symptoms: ["結胸", "項強", "柔痓狀"], formula: "大陷胸丸" },
     { name: "小結胸病", symptoms: ["心下按之則痛", "胸中痞滿"], formula: "小陷胸湯" },
     { name: "太陽中風證", symptoms: ["汗出", "頭痛", "心下痞鞕滿", "引脅下痛", "乾嘔", "氣喘", "不惡寒"], formula: "十棗湯" },
     { name: "陽明病", symptoms: ["咽燥", "口苦", "腹滿", "氣喘", "發熱", "汗出", "不惡寒", "反惡熱", "身重", "心煩"], formula: "梔子豉湯" },
@@ -1808,8 +1830,11 @@
     { name: "陽明腑實證", symptoms: ["身體疼痛", "不能轉側", "腹中痛"], formula: "附子湯" },
     { name: "陽明腑實證", symptoms: ["小便不利", "身重", "身體疼痛", "腹痛", "下利", "心悸", "咽痛"], formula: "真武湯" },
     { name: "厥陰病", symptoms: ["厥冷"], formula: "當歸四逆湯" },
+    { name: "厥陰病", symptoms: ["蚘厥"], formula: "烏梅丸" },
+    { name: "厥陰病", symptoms: ["久利"], formula: "烏梅丸" },
     { name: "厥陰病", symptoms: ["熱利下重"], formula: "白頭翁湯" },
     { name: "少陰病", symptoms: ["小便不利", "身重", "身體疼痛", "腹痛", "心悸", "下利", "咽痛", "胸部滿悶", "心煩"], formula: "豬膚湯" },
+    { name: "少陰病", symptoms: ["小便不利", "便膿血", "腹痛", "下利"], formula: "桃花湯" },
     { name: "少陰病", symptoms: ["小便不利", "身重", "身體疼痛", "腹痛", "下利", "心悸", "吐利", "厥冷", "心煩"], formula: "吳茱萸湯" },
     { name: "陽明病", symptoms: ["發熱", "口渴", "小便不利"], formula: "豬苓散" },
     { name: "少陰病", symptoms: ["小便不利", "身重", "身體疼痛", "腹痛", "下利", "心悸", "咽中傷", "不能語言"], formula: "苦酒湯" },
